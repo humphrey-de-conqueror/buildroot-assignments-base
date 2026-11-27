@@ -21,7 +21,7 @@ exec "$QEMU_BIN" \
     -smp 1 \
     -kernel "$KERNEL" \
     -append "rootwait root=/dev/vda console=ttyAMA0" \
-    -netdev user,id=eth0,hostfwd=tcp::10022-:22 \
+    -netdev user,id=eth0,hostfwd=tcp::10022-:22,hostfwd=tcp::9000-:9000 \
     -device virtio-net-device,netdev=eth0 \
     -drive file="$ROOTFS",if=none,format=raw,id=hd0 \
     -device virtio-blk-device,drive=hd0 \
